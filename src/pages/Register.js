@@ -52,49 +52,58 @@ export default function Register(props) {
   return (
     success
       ? <h1>Successfully signed up, redirecting you to login...</h1>
-      : <div className="form-card">
-        {errorMsg ? <pre style={{ color: 'red' }}>{errorMsg}</pre> : null}
-        <h1 className="card-title">{'Create an account'}</h1>
-        <form className="form-container" onSubmit={handleSubmit}>
+      : <div className="card form-signin">
+        <div>
+          <form onSubmit={handleSubmit}>
 
-          <div className="form-input-group">
-            <label htmlFor="emailIput">Enter your email:</label>
-            <input
-              className="form-input"
-              type="email"
-              id="emailInput"
-              value={email}
-              onChange={(e => setEmail(e.target.value))}
-            />
-          </div>
+            {errorMsg ? <pre style={{ color: 'red' }}>{errorMsg}</pre> : null}
 
-          <div className="form-input-group">
-            <label htmlFor="passwordInput">Enter your password:</label>
-            <input
-              className="form-input"
-              type="password"
-              value={password}
-              id="passwordInput"
-              onChange={(e => setPassword(e.target.value))}
-            />
-          </div>
+            <h1 className="h3 mb-3 fw-normal text-center">Sign Up</h1>
 
-          <div className="form-input-group">
-            <label htmlFor="passwordInput">Confirm your password:</label>
-            <input
-              className="form-input"
-              type="password"
-              value={confirmPassword}
-              id="confirmPasswordInput"
-              onChange={(e => setConfirmPassword(e.target.value))}
-            />
-          </div>
+            <div class="mb-3">
+              <label htmlFor="emailInput" class="form-label">Email address:</label>
+              <div class="input-group">
+                <input
+                  className="form-control"
+                  type="email"
+                  id="emailInput"
+                  placeholder="name@something.com"
+                  value={email}
+                  onChange={(e => setEmail(e.target.value))}
+                />
+              </div>
+            </div>
 
-          <input className="form-input" type="submit" value="Register" disabled={!password || (confirmPassword !== password)}></input>
-        </form>
+            <div class="mb-3">
+              <label htmlFor="passwordInput" class="form-label">Password:</label>
+              <div class="input-group">
+                <input
+                  className="form-control"
+                  type="password"
+                  value={password}
+                  id="passwordInput"
+                  onChange={(e => setPassword(e.target.value))}
+                />
+              </div>
+            </div>
 
-        <a className="forgot-password-link">Forgot your password?</a>
+            <div class="mb-3">
+              <label htmlFor="confirmPasswordInput" class="form-label">Confirm password:</label>
+              <div class="input-group">
+                <input
+                  className="form-control"
+                  type="password"
+                  value={confirmPassword}
+                  id="confirmPasswordInput"
+                  onChange={(e => setConfirmPassword(e.target.value))}
+                />
+              </div>
+            </div>
 
+            <input className="w-100 btn btn-lg btn-primary" type="submit" value="Sign Up" disabled={!password || confirmPassword !== password}></input>
+
+          </form>
+        </div>
       </div>
   );
 }

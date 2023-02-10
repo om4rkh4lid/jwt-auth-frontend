@@ -51,7 +51,7 @@ export default function Login(props) {
 
           {errorMsg ? <pre style={{ color: 'red' }}>{errorMsg}</pre> : null}
 
-          <h1 className="h3 mb-3 fw-normal text-center">{'Please Log In'}</h1>
+          <h1 className="h3 mb-3 fw-normal text-center">Please Log In</h1>
 
           <div class="mb-3">
             <label htmlFor="emailInput" class="form-label">Email address:</label>
@@ -80,7 +80,7 @@ export default function Login(props) {
             </div>
           </div>
 
-          <input className="w-100 btn btn-lg btn-primary" type="submit" value="Login"></input>
+          <input className="w-100 btn btn-lg btn-primary" type="submit" value="Log In"></input>
 
         </form>
       </div>
