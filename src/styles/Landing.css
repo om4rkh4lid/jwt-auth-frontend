@@ -1,0 +1,15 @@
+.navbar {
+  text-align: right;
+  margin-top: 30px;
+}
+
+.nav-link {
+  margin-right: 30px;
+}
+
+.hero {
+  margin-top: 100px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
