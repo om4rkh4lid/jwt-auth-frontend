@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import "../styles/Content.css"
 
 const Content = () => {
   const axiosPrivate = useAxiosPrivate();
@@ -21,9 +21,26 @@ const Content = () => {
     fetchUserList();
   }, []);
 
-  return(
+  return (
     data
-      ? <ul>{data.map(user => <li key={user.id}>{user.email}</li>)}</ul>
+      ?
+      <div className="container content">
+        <h2>List of users in the system:</h2>
+        <div class="list-group w-auto">
+          {data.map((user, index) => {
+            return (
+              <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                  <div>
+                    <h6 class="mb-0">User {index + 1}</h6>
+                    <p class="mb-0 opacity-75">{user.email}</p>
+                  </div>
+                </div>
+              </a>
+            )
+          })}
+        </div>
+      </div>
       : error ? <h1>{error.message}</h1> : <h1>This is a protected route...</h1>
   );
 }

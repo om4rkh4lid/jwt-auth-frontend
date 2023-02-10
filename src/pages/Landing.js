@@ -4,16 +4,19 @@ import "../styles/Landing.css"
 
 const Landing = () => {
   return (
-    <div>
-      <nav className="navbar">
-        <NavLink className="nav-link" to='/login'>Login</NavLink>
-        <NavLink className="nav-link" to='/register'>Sign Up</NavLink>
-      </nav>
-      <div className="hero">
-        <h1>Welcome to my app!</h1>
-        <p>This is some text that no one is probably going to read</p>
+
+      <div>
+        <div class="px-4 py-5 my-5 text-center">
+          <h1 class="display-5 fw-bold">Landing Page</h1>
+          <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">This is what a user who isn't authenticated sees.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+              <NavLink className="btn btn-primary btn-lg px-4 gap-3" to='/login'>Login</NavLink>
+              <NavLink className="btn btn-outline-danger btn-lg px-4" to='/register'>Sign Up</NavLink>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
   );
 }
 
