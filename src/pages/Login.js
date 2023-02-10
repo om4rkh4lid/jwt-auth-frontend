@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import axios from "../api/axios";
 import "../styles/Login.css";
@@ -11,9 +11,8 @@ export default function Login(props) {
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
-  const { accessToken, setAccessToken } = useAuth();
+  const { setAccessToken } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
 
   const clearFields = () => {
     setEmail('');
@@ -44,42 +43,48 @@ export default function Login(props) {
   useEffect(() => {
     setErrorMsg('')
   }, [email, password]);
-  
-  useEffect(() => {
-    console.log(location);
-  }, []);
 
-  return (<div className="form-card">
-    {errorMsg ? <pre style={{ color: 'red' }}>{errorMsg}</pre> : null}
-    <h1 className="card-title">{accessToken ? `Hello` : 'Please Log In'}</h1>
-    <form className="form-container" onSubmit={handleSubmit}>
+  return (
+    <div className="card form-signin">
+      <div>
+        <form onSubmit={handleSubmit}>
 
-      <div className="form-input-group">
-        <label htmlFor="emailIput">Enter your email:</label>
-        <input
-          className="form-input"
-          type="email"
-          id="emailInput"
-          value={email}
-          onChange={(e => setEmail(e.target.value))}
-        />
+          {errorMsg ? <pre style={{ color: 'red' }}>{errorMsg}</pre> : null}
+
+          <h1 className="h3 mb-3 fw-normal text-center">{'Please Log In'}</h1>
+
+          <div class="mb-3">
+            <label htmlFor="emailInput" class="form-label">Email address:</label>
+            <div class="input-group">
+            <input
+              className="form-control"
+              type="email"
+              id="emailInput"
+              placeholder="name@something.com"
+              value={email}
+              onChange={(e => setEmail(e.target.value))}
+            />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label htmlFor="passwordInput" class="form-label">Password:</label>
+            <div class="input-group">
+            <input
+              className="form-control"
+              type="password"
+              value={password}
+              id="passwordInput"
+              onChange={(e => setPassword(e.target.value))}
+            />
+            </div>
+          </div>
+
+          <input className="w-100 btn btn-lg btn-primary" type="submit" value="Login"></input>
+
+        </form>
       </div>
+    </div>
 
-      <div className="form-input-group">
-        <label htmlFor="passwordInput">Enter your password:</label>
-        <input
-          className="form-input"
-          type="password"
-          value={password}
-          id="passwordInput"
-          onChange={(e => setPassword(e.target.value))}
-        />
-      </div>
-
-      <input className="form-input" type="submit" value="Login"></input>
-    </form>
-
-    <a className="forgot-password-link">Forgot your password?</a>
-
-  </div>);
+  );
 }

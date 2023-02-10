@@ -41,16 +41,16 @@ const Home = () => {
   }, []);
 
   return (
-      <>
-        {
-        accessToken ?
-        <div>
-          <h1>You are logged in...</h1>
-          <button onClick={handleClick}>View Users</button>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
-         : <Landing />}
-      </>
+    <>
+      {
+      accessToken ?
+      <div>
+        <h1>You are logged in...</h1>
+        <button onClick={handleClick}>View Users</button>
+        <button onClick={handleLogout}>Logout</button>
+      </div>
+       : <Landing />}
+    </>
   )
 }
 
