@@ -6,7 +6,7 @@ This project's backend: https://github.com/om4rkh4lid/jwt-auth-backend
 
 ## Description
 
-In this project I practiced working with ReactJS to create an frontend app that communicates with the aforementioned API and displays different content based on whether the user is authenticated or not.
+In this project I practiced working with ReactJS to create a frontend app that communicates with the aforementioned API and displays different content based on whether the user is authenticated or not.
 The user also cannot access certain paths like '/login' or '/register' if he or she is authenticated.
 I've also used Axios Interceptors to automatically refresh expired access tokens and attach authorization headers to requests.
 
