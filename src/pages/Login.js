@@ -53,9 +53,9 @@ export default function Login(props) {
 
           <h1 className="h3 mb-3 fw-normal text-center">Please Log In</h1>
 
-          <div class="mb-3">
-            <label htmlFor="emailInput" class="form-label">Email address:</label>
-            <div class="input-group">
+          <div className="mb-3">
+            <label htmlFor="emailInput" className="form-label">Email address:</label>
+            <div className="input-group">
             <input
               className="form-control"
               type="email"
@@ -67,9 +67,9 @@ export default function Login(props) {
             </div>
           </div>
 
-          <div class="mb-3">
-            <label htmlFor="passwordInput" class="form-label">Password:</label>
-            <div class="input-group">
+          <div className="mb-3">
+            <label htmlFor="passwordInput" className="form-label">Password:</label>
+            <div className="input-group">
             <input
               className="form-control"
               type="password"

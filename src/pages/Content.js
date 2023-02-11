@@ -26,14 +26,14 @@ const Content = () => {
       ?
       <div className="container content">
         <h2>List of users in the system:</h2>
-        <div class="list-group w-auto">
+        <div className="list-group w-auto">
           {data.map((user, index) => {
             return (
-              <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <div class="d-flex gap-2 w-100 justify-content-between">
+              <a key={index} href="#" className="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <div className="d-flex gap-2 w-100 justify-content-between">
                   <div>
-                    <h6 class="mb-0">User {index + 1}</h6>
-                    <p class="mb-0 opacity-75">{user.email}</p>
+                    <h6 className="mb-0">User {index + 1}</h6>
+                    <p className="mb-0 opacity-75">{user.email}</p>
                   </div>
                 </div>
               </a>

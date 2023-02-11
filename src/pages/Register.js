@@ -60,9 +60,9 @@ export default function Register(props) {
 
             <h1 className="h3 mb-3 fw-normal text-center">Sign Up</h1>
 
-            <div class="mb-3">
-              <label htmlFor="emailInput" class="form-label">Email address:</label>
-              <div class="input-group">
+            <div className="mb-3">
+              <label htmlFor="emailInput" className="form-label">Email address:</label>
+              <div className="input-group">
                 <input
                   className="form-control"
                   type="email"
@@ -74,9 +74,9 @@ export default function Register(props) {
               </div>
             </div>
 
-            <div class="mb-3">
-              <label htmlFor="passwordInput" class="form-label">Password:</label>
-              <div class="input-group">
+            <div className="mb-3">
+              <label htmlFor="passwordInput" className="form-label">Password:</label>
+              <div className="input-group">
                 <input
                   className="form-control"
                   type="password"
@@ -87,9 +87,9 @@ export default function Register(props) {
               </div>
             </div>
 
-            <div class="mb-3">
-              <label htmlFor="confirmPasswordInput" class="form-label">Confirm password:</label>
-              <div class="input-group">
+            <div className="mb-3">
+              <label htmlFor="confirmPasswordInput" className="form-label">Confirm password:</label>
+              <div className="input-group">
                 <input
                   className="form-control"
                   type="password"
