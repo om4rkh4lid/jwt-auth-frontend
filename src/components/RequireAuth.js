@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 
 const RequireAuth = () => {
-  const { accessToken } = useAuth();
+  const { auth } = useAuth();
   const navigate = useNavigate();
   const refresh = useRefresh();
 
@@ -18,7 +18,7 @@ const RequireAuth = () => {
   }
 
   useEffect(() => {
-    if (!accessToken) {
+    if (!auth) {
       refreshOrRedirect();
     }
   }, []);
@@ -26,7 +26,7 @@ const RequireAuth = () => {
   
 
   return(
-    accessToken && <Outlet />
+    auth.accessToken && <Outlet />
   );
 }
 

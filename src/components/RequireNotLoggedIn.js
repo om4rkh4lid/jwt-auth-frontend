@@ -1,11 +1,11 @@
 import useAuth from "../hooks/useAuth"
 import useRefresh from "../hooks/useRefresh";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 
 const RequireNotLoggedIn = () => {
-  const { accessToken } = useAuth();
+  const { auth } = useAuth();
   const navigate = useNavigate();
   const refresh = useRefresh();
 
@@ -19,7 +19,7 @@ const RequireNotLoggedIn = () => {
   }
 
   useEffect(() => {
-    if (accessToken) {
+    if (auth.accessToken) {
       navigate('/');
     } else {
       verifyNotLoggedIn();
@@ -27,7 +27,7 @@ const RequireNotLoggedIn = () => {
   }, []);
 
   return(
-    !accessToken && <Outlet />
+    !auth.accessToken && <Outlet />
   );
 }
 

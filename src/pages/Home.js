@@ -7,7 +7,7 @@ import Landing from "./Landing";
 
 const Home = () => {
 
-  const { accessToken, setAccessToken } = useAuth();
+  const { auth, setAuth } = useAuth();
   const navigate = useNavigate();
   const refresh = useRefresh();
   const axiosPrivate = useAxiosPrivate();
@@ -19,7 +19,7 @@ const Home = () => {
   const handleLogout = async (e) => {
     try {
       await axiosPrivate.post('/auth/logout');
-      setAccessToken("");
+      setAuth({});
     } catch (error) {
       console.log(error);
       console.log('something went wrong while logging you out...');
@@ -30,12 +30,12 @@ const Home = () => {
     try {
       await refresh();
     } catch (error) {
-      console.log(error);
+      
     }
   }
 
   useEffect(() => {
-    if (!accessToken) {
+    if (!auth.accessToken) {
       refreshOrRedirect();
     }
   }, []);
@@ -43,7 +43,7 @@ const Home = () => {
   return (
     <>
       {
-        accessToken ?
+        auth.accessToken ?
           <div>
             <div className="px-4 py-5 my-5 text-center">
                 <h1 className="display-5 fw-bold">Authentication & Authorization</h1>

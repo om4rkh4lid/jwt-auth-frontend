@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useState } from "react";
 
 export const AuthContext = createContext();
 
@@ -6,10 +6,10 @@ export const AuthContext = createContext();
 // you can destructure the function argument as such: ({ children })
 
 export const AuthProvider = (props) => {
-  const [ accessToken, setAccessToken ] = useState("");
+  const [ auth, setAuth ] = useState({});
   
   return (
-    <AuthContext.Provider value={{ accessToken, setAccessToken }}>
+    <AuthContext.Provider value={{ auth, setAuth }}>
       {props.children} 
     </AuthContext.Provider>
   );

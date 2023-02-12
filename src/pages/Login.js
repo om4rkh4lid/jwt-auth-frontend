@@ -11,7 +11,7 @@ export default function Login(props) {
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
-  const { setAccessToken } = useAuth();
+  const { setAuth } = useAuth();
   const navigate = useNavigate();
 
   const clearFields = () => {
@@ -25,7 +25,7 @@ export default function Login(props) {
 
   const handleSuccess = (data) => {
     clearFields();
-    setAccessToken(data.accessToken);
+    setAuth({data});
     navigate('/', { replace: true });
   }
 
@@ -35,7 +35,6 @@ export default function Login(props) {
       const response = await axios.post(LOGIN_ENDPOINT, { email, password });
       handleSuccess(response.data)
     } catch (error) {
-      console.log(error);
       handleError(error.response)
     }
   }
