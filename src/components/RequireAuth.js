@@ -13,17 +13,16 @@ const RequireAuth = () => {
     try {
       await refresh();
     } catch (error) {
-      navigate('/login');
+      navigate('/login', { replace: true });
     }
   }
 
   useEffect(() => {
-    if (!auth) {
+    if (!auth.accessToken) {
       refreshOrRedirect();
     }
-  }, []);
-
-  
+    console.log(auth);
+  }, [auth]);
 
   return(
     auth.accessToken && <Outlet />

@@ -12,7 +12,7 @@ const RequireNotLoggedIn = () => {
   const verifyNotLoggedIn = async () => {
     try {
       await refresh();
-      navigate('/');
+      navigate('/', {replace: true});
     } catch (error) {
       // then we're in the right spot
     }
